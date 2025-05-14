@@ -79,6 +79,25 @@ def create_markdown(
     # corpo do documento
     md_lines: list[str] = ['']
 
+    # Tabela Resumo da Licitação
+    md_lines.append("## Resumo da Licitação")
+    md_lines.append("")
+    md_lines.append("| Campo | Valor |")
+    md_lines.append("|-------|-------|")
+    md_lines.append(f"| Número | {safe_get(licitacao, 'numero')} |")
+    md_lines.append(f"| Ano | {safe_get(licitacao, 'ano')} |")
+    md_lines.append(f"| Número Sequencial | {safe_get(licitacao, 'numero_sequencial')} |")
+    md_lines.append(f"| Número Sequencial Compra/Ata | {safe_get(licitacao, 'numero_sequencial_compra_ata')} |")
+    md_lines.append(f"| Órgão | {safe_get(licitacao, 'orgao_nome')} |")
+    md_lines.append(f"| UF | {safe_get(licitacao, 'uf')} |")
+    md_lines.append(f"| Município | {safe_get(licitacao, 'municipio_nome')} |")
+    md_lines.append(f"| Modalidade | {safe_get(licitacao, 'modalidade_licitacao_nome')} |")
+    md_lines.append(f"| Situação | {safe_get(licitacao, 'situacao_nome')} |")
+    md_lines.append(f"| Valor Global | {format_currency(licitacao['valor_global']) if 'valor_global' in licitacao.keys() else '-'} |")
+    md_lines.append(f"| Data Publicação PNCP | {safe_get(licitacao, 'data_publicacao_pncp')} |")
+    md_lines.append(f"| ID | {safe_get(licitacao, 'id')} |")
+    md_lines.append("")
+
     # Descrição Geral
     md_lines.append("## Descrição Geral")
     md_lines.append(safe_get(licitacao, 'description', '(Sem descrição)'))
