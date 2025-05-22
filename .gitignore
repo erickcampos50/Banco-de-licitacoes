@@ -1,1 +1,4 @@
 database2.db
+venv/
+backend_js/
+database2*

@@ -8,10 +8,10 @@ SEARCH_URL   = "https://pncp.gov.br/api/search/"
 BASE_PNCP    = "https://pncp.gov.br/api/pncp/v1/orgaos/"
 TIPOS_DOCUMENTO = ["edital","ata"]  #edital ou ata
 ORDENACAO       = ["data","-data"]  # data,-data,relevancia; sendo que "-data" é o mais antigo
-PAGES           = list(range(1,21)) # lembrar que o limite superior da faixa não é incluso, então se quiser que vá até a página 20, é preciso colocar 21
-TAM_PAGINA      = 500
+PAGES           = list(range(1,2)) # lembrar que o limite superior da faixa não é incluso, então se quiser que vá até a página 20, é preciso colocar 21
+TAM_PAGINA      = 1
 MAX_CONN        = 5
-DB_PATH         = "database2.db"
+DB_PATH         = "database_lite.db"
 
 # ============ HELPERS ============
 def now():
@@ -70,6 +70,9 @@ CREATE TABLE IF NOT EXISTS licitacoes (
     tipo_id TEXT,
     tipo_nome TEXT,
     tipo_contrato_id TEXT,
+    fonte_orcamentaria TEXT,
+    fonte_orcamentaria_id TEXT,
+    fonte_orcamentaria_nome TEXT,
     tipo_contrato_nome TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_licitacoes_controle

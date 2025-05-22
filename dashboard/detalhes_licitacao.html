@@ -1,0 +1,298 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf4] px-10 py-3">
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-4 text-[#0d141c]">
+              <div class="size-4">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_6_319)">
+                    <path
+                      d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"
+                      fill="currentColor"
+                    ></path>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_6_319"><rect width="48" height="48" fill="white"></rect></clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <h2 class="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">Licitacoes</h2>
+            </div>
+            <div class="flex items-center gap-9">
+              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="index.html">Dashboard</a>
+              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="licitacoes.html">Licitacoes</a>
+              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Contratos</a>
+              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Fornecedores</a>
+            </div>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <label class="flex flex-col min-w-40 !h-10 max-w-64">
+              <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                <div
+                  class="text-[#49739c] flex border-none bg-[#e7edf4] items-center justify-center pl-4 rounded-l-lg border-r-0"
+                  data-icon="MagnifyingGlass"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  placeholder="Search"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141c] focus:outline-0 focus:ring-0 border-none bg-[#e7edf4] focus:border-none h-full placeholder:text-[#49739c] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                  value=""
+                />
+              </div>
+            </label>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCFHBv91Hh9fxfbdVhgmayks2Hc58eXUOu20zLdhp-vDv9rGgnLU8-BM0AQhcP97lGK2V__7hyl4ybfGxEONt1mqTWnTT_6feQANl0dZhzOB9XWXlDUrZfAhZYpMg_7mXknnMLskqceep54lffgX95pcQUgwdoN4c1iU2BQWCCF6ebPuqodHE9c5O7dNvd3QH4P-K-Fb1NR0gPePCSdYmIi1YWYTunL1IegKEb138ymf0Q7i8mX6xgbAPDuKtXwZ0YsgXoPRP0-saY");'
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p class="text-[#0d141c] tracking-light text-[32px] font-bold leading-tight">Detalhes da Licitacao</p>
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Visualizando detalhes da licitacao selecionada.</p>
+              </div>
+            </div>
+            <h3 class="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Informações Gerais</h3>
+            <div class="p-4 grid grid-cols-[20%_1fr] gap-x-6" id="info-gerais">
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Título</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal" id="info-title"></p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Descrição</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal" id="info-description"></p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Órgão Licitante</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal" id="info-orgao"></p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Unidade</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal" id="info-unidade"></p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Esfera</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal" id="info-esfera"></p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Município</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal" id="info-municipio"></p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+                <p class="text-[#49739c] text-sm font-normal leading-normal">UF</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal" id="info-uf"></p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Modalidade de Licitação</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal" id="info-modalidade"></p>
+              </div>
+            </div>
+            <div id="content-itens" class="px-4 py-3 @container">
+              <div class="flex overflow-hidden rounded-lg border border-[#cedbe8] bg-slate-50">
+                <table class="flex-1">
+                  <thead>
+                    <tr class="bg-slate-50">
+                      <th class="table-4187fe38-ff57-40a1-bb71-19a7f707dfb3-column-120 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">Item</th>
+                      <th class="table-4187fe38-ff57-40a1-bb71-19a7f707dfb3-column-240 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
+                        Descricao
+                      </th>
+                      <th class="table-4187fe38-ff57-40a1-bb71-19a7f707dfb3-column-360 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
+                        Quantidade
+                      </th>
+                      <th class="table-4187fe38-ff57-40a1-bb71-19a7f707dfb3-column-480 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
+                        Valor Unitario
+                      </th>
+                      <th class="table-4187fe38-ff57-40a1-bb71-19a7f707dfb3-column-600 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
+                        Valor Total
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="itens-tbody">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div id="content-arquivos" class="px-4 py-3 @container">
+              <div class="flex overflow-hidden rounded-lg border border-[#cedbe8] bg-slate-50">
+                <table class="flex-1">
+                  <thead>
+                    <tr class="bg-slate-50">
+                      <th class="px-4 py-3 text-left text-[#0d141c] text-sm font-medium leading-normal">Título</th>
+                      <th class="px-4 py-3 text-left text-[#0d141c] text-sm font-medium leading-normal">Nome do Arquivo</th>
+                      <th class="px-4 py-3 text-left text-[#0d141c] text-sm font-medium leading-normal">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody id="arquivos-tbody"></tbody>
+                </table>
+                <div id="no-arquivos" class="text-[#49739c] text-center hidden p-4">Nenhum arquivo disponível.</div>
+              </div>
+            </div>
+            <div id="content-resultados" class="px-4 py-3 @container">
+              <div class="flex flex-col gap-4 rounded-lg border border-[#cedbe8] bg-slate-50 p-4">
+                <div id="resultados-list"></div>
+                <div id="no-resultados" class="text-[#49739c] text-center hidden">Nenhum resultado disponível.</div>
+              </div>
+            </div>
+            <div id="content-markdown" class="px-4 py-3 @container">
+              <h3 class="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Conteúdo dos documentos</h3>
+              <div id="markdown-contents-container" class="flex flex-col gap-2"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const licitacaoId = new URLSearchParams(window.location.search).get("id");
+
+      const contentItens = document.getElementById("content-itens");
+      const contentArquivos = document.getElementById("content-arquivos");
+      const contentResultados = document.getElementById("content-resultados");
+      const contentMarkdown = document.getElementById("content-markdown");
+
+      async function fetchLicitacaoDetails() {
+        const response = await fetch(`http://localhost:8000/licitacoes/${encodeURIComponent(licitacaoId)}`);
+        if (!response.ok) {
+          console.error("Failed to fetch licitacao details");
+          return;
+        }
+        const licitacao = await response.json();
+        document.getElementById("info-title").textContent = licitacao.title || "";
+        document.getElementById("info-description").textContent = licitacao.description || "";
+        document.getElementById("info-orgao").textContent = licitacao.orgao_nome || "";
+        document.getElementById("info-unidade").textContent = licitacao.unidade_nome || "";
+        document.getElementById("info-esfera").textContent = licitacao.esfera_nome || "";
+        document.getElementById("info-municipio").textContent = licitacao.municipio_nome || "";
+        document.getElementById("info-uf").textContent = licitacao.uf || "erro";
+        document.getElementById("info-modalidade").textContent = licitacao.modalidade_licitacao_nome || "";
+      }
+
+      async function fetchItens() {
+        const response = await fetch(`http://localhost:8000/licitacoes/${encodeURIComponent(licitacaoId)}/itens`);
+        const itens = await response.json();
+        const tbody = document.getElementById("itens-tbody");
+        tbody.innerHTML = "";
+        itens.forEach(item => {
+          const tr = document.createElement("tr");
+          tr.classList.add("border-t", "border-t-[#cedbe8]");
+
+          tr.innerHTML = `
+            <td class="table-4187fe38-ff57-40a1-bb71-19a7f707dfb3-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">${item.numeroItem}</td>
+            <td class="table-4187fe38-ff57-40a1-bb71-19a7f707dfb3-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">${item.descricao}</td>
+            <td class="table-4187fe38-ff57-40a1-bb71-19a7f707dfb3-column-360 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">-</td>
+            <td class="table-4187fe38-ff57-40a1-bb71-19a7f707dfb3-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">-</td>
+            <td class="table-4187fe38-ff57-40a1-bb71-19a7f707dfb3-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">${item.valor_total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      async function fetchArquivos() {
+        const response = await fetch(`http://localhost:8000/licitacoes/${encodeURIComponent(licitacaoId)}/arquivos`);
+        const arquivos = await response.json();
+        const tbody = document.getElementById("arquivos-tbody");
+        const noArquivos = document.getElementById("no-arquivos");
+        tbody.innerHTML = "";
+        if (arquivos.length === 0) {
+          noArquivos.classList.remove("hidden");
+        } else {
+          noArquivos.classList.add("hidden");
+          arquivos.forEach(arquivo => {
+            const tr = document.createElement("tr");
+            tr.classList.add("border-t", "border-t-[#cedbe8]");
+            tr.innerHTML = `
+              <td class="px-4 py-2 text-[#0d141c] text-sm font-normal leading-normal">${arquivo.titulo || "Sem título"}</td>
+              <td class="px-4 py-2 text-[#49739c] text-sm font-normal leading-normal">${arquivo.nome_arquivo || ""}</td>
+              <td class="px-4 py-2 text-[#0d141c] text-sm font-normal leading-normal">
+                <button onclick="window.open('${arquivo.url}', '_blank')" class="text-blue-600 hover:underline">Download</button>
+              </td>
+            `;
+            // Remove previous click event listener to avoid confusion, replaced by button below
+            // tr.addEventListener("click", () => {
+            //   fetchMarkdownContent(arquivo.id_licitacao, arquivo.sequencial_documento);
+            // });
+            tbody.appendChild(tr);
+
+            // Create collapsible button and content container for each arquivo
+            const markdownContainer = document.getElementById("markdown-contents-container");
+            const collapsibleWrapper = document.createElement("div");
+            collapsibleWrapper.classList.add("border", "border-[#cedbe8]", "rounded-lg", "bg-white", "p-4");
+
+            const button = document.createElement("button");
+            button.textContent = arquivo.titulo || "Sem título";
+            button.classList.add("w-full", "text-left", "font-semibold", "text-[#0d141c]", "mb-2", "focus:outline-none");
+            button.style.cursor = "pointer";
+
+            const contentDiv = document.createElement("div");
+            contentDiv.style.display = "none";
+            contentDiv.classList.add("whitespace-pre-wrap", "text-sm", "text-[#0d141c]");
+
+            button.addEventListener("click", () => {
+              if (contentDiv.style.display === "none") {
+                contentDiv.style.display = "block";
+                if (!contentDiv.textContent) {
+                  fetchMarkdownContent(arquivo.id_licitacao, arquivo.sequencial_documento, contentDiv);
+                }
+              } else {
+                contentDiv.style.display = "none";
+              }
+            });
+
+            collapsibleWrapper.appendChild(button);
+            collapsibleWrapper.appendChild(contentDiv);
+            markdownContainer.appendChild(collapsibleWrapper);
+          });
+          // Remove automatic fetch of first arquivo content since now user controls visibility
+        }
+      }
+
+      async function fetchMarkdownContent(id_licitacao, sequencial_documento, contentDiv) {
+        const response = await fetch(`http://localhost:8000/arquivo_markdown/${encodeURIComponent(id_licitacao)}/${encodeURIComponent(sequencial_documento)}`);
+        if (response.ok) {
+          const data = await response.json();
+          if (contentDiv) {
+            contentDiv.textContent = "Conteúdo extraído automaticamente, pode conter erros:\n\n" + (data.conteudo_markdown || "Sem conteúdo disponível.");
+          }
+        }
+      }
+
+      async function fetchResultados() {
+        // Assuming results are part of licitacoes or another endpoint; for now, show no data message
+        const resultadosList = document.getElementById("resultados-list");
+        const noResultados = document.getElementById("no-resultados");
+        // TODO: Implement fetching real results from backend when available
+        resultadosList.innerHTML = "";
+        noResultados.classList.remove("hidden");
+      }
+
+      // Initial load
+      fetchLicitacaoDetails();
+      fetchItens();
+      fetchArquivos();
+      fetchResultados();
+    </script>
+  </body>
+</html>

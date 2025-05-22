@@ -1,0 +1,480 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden"
+      style='--select-button-svg: url(&apos;data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(73,115,156)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e&apos;); font-family: "Public Sans", "Noto Sans", sans-serif;'
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf4] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#0d141c]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_6_319)">
+                  <path
+                    d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"
+                    fill="currentColor"
+                  ></path>
+                </g>
+                <defs>
+                  <clipPath id="clip0_6_319"><rect width="48" height="48" fill="white"></rect></clipPath>
+                </defs>
+              </svg>
+            </div>
+            <h2 class="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">Licitacoes</h2>
+          </div>
+            <div class="flex flex-1 justify-end gap-8">
+              <label class="flex flex-col min-w-40 !h-10 max-w-64">
+                <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                  <div
+                    class="text-[#49739c] flex border-none bg-[#e7edf4] items-center justify-center pl-4 rounded-l-lg border-r-0"
+                    data-icon="MagnifyingGlass"
+                    data-size="24px"
+                    data-weight="regular"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <input
+                    placeholder="Search"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141c] focus:outline-0 focus:ring-0 border-none bg-[#e7edf4] focus:border-none h-full placeholder:text-[#49739c] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                    value=""
+                  />
+                </div>
+              </label>
+              <button
+                class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#e7edf4] text-[#0d141c] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+              >
+                <div class="text-[#0d141c]" data-icon="Bell" data-size="20px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                    ></path>
+                  </svg>
+                </div>
+              </button>
+              <div
+                class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCX1HkNh7-XCx1vFYvKmLc-0-VrcCFQG1LO0xD84RBMlw3bwclye_x02l5KZNuGrpp5XZ8pEkOJ_u_y4FzAlDUKZV20VszA-VL8rlQSdX1llqqDdw67qubyAbcqeSwxu1-d4h0WyNoLVQAhN2e9RvGxbYoHKeJ4Tw0YkMbaqE06W3thsc0w4hGrL8lmA3qhA4x2kZGg8vwONw_WVwM0SYX0oa5rqmlcscTscrBah2DjNSdQizhOvmekeM_wvS1juH95ZCGixe9AjxA");'
+              ></div>
+            </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p class="text-[#0d141c] tracking-light text-[32px] font-bold leading-tight">Licitacoes</p>
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Visualize e filtre as licitacoes</p>
+              </div>
+            </div>
+            <div class="px-4 py-3">
+              <label class="flex flex-col min-w-40 h-12 w-full">
+                <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                  <div
+                    class="text-[#49739c] flex border-none bg-[#e7edf4] items-center justify-center pl-4 rounded-l-lg border-r-0"
+                    data-icon="MagnifyingGlass"
+                    data-size="24px"
+                    data-weight="regular"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <input
+                    placeholder="Pesquisar licitacoes"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141c] focus:outline-0 focus:ring-0 border-none bg-[#e7edf4] focus:border-none h-full placeholder:text-[#49739c] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                    id="search-input"
+                    value=""
+                  />
+                </div>
+              </label>
+            </div>
+            <h3 class="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Filtros</h3>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <select
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141c] focus:outline-0 focus:ring-0 border border-[#cedbe8] bg-slate-50 focus:border-[#cedbe8] h-14 bg-[image:--select-button-svg] placeholder:text-[#49739c] p-[15px] text-base font-normal leading-normal"
+                  id="filter-orgao"
+                >
+                  <option value="">Orgao</option>
+                </select>
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <select
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141c] focus:outline-0 focus:ring-0 border border-[#cedbe8] bg-slate-50 focus:border-[#cedbe8] h-14 bg-[image:--select-button-svg] placeholder:text-[#49739c] p-[15px] text-base font-normal leading-normal"
+                  id="filter-tipo"
+                >
+                  <option value="">Tipo</option>
+                </select>
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <select
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141c] focus:outline-0 focus:ring-0 border border-[#cedbe8] bg-slate-50 focus:border-[#cedbe8] h-14 bg-[image:--select-button-svg] placeholder:text-[#49739c] p-[15px] text-base font-normal leading-normal"
+                  id="filter-situacao"
+                >
+                  <option value="">Situacao</option>
+                </select>
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <input
+                  placeholder="Data de inicio"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141c] focus:outline-0 focus:ring-0 border border-[#cedbe8] bg-slate-50 focus:border-[#cedbe8] h-14 placeholder:text-[#49739c] p-[15px] text-base font-normal leading-normal"
+                  id="filter-data-inicio"
+                  type="date"
+                />
+              </label>
+              <label class="flex flex-col min-w-40 flex-1">
+                <input
+                  placeholder="Data de fim"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141c] focus:outline-0 focus:ring-0 border border-[#cedbe8] bg-slate-50 focus:border-[#cedbe8] h-14 placeholder:text-[#49739c] p-[15px] text-base font-normal leading-normal"
+                  id="filter-data-fim"
+                  type="date"
+                />
+              </label>
+            </div>
+            <div class="flex px-4 py-3 justify-end">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#0c7ff2] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]"
+                id="apply-filters-btn"
+              >
+                <span class="truncate">Aplicar filtros</span>
+              </button>
+            </div>
+            <div class="px-4 py-3 @container">
+              <div class="flex overflow-hidden rounded-lg border border-[#cedbe8] bg-slate-50">
+                <table class="flex-1">
+                  <thead>
+                    <tr class="bg-slate-50">
+                      <th class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-120 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">Orgao</th>
+                      <th class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-240 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">Tipo</th>
+                      <th class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-360 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
+                        Situacao
+                      </th>
+                      <th class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-480 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
+                        Data de inicio
+                      </th>
+                      <th class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-600 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
+                        Data de fim
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-t border-t-[#cedbe8]">
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-120 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        <a href="detalhes_licitacao.html?id=1" class="text-[#49739c]">Prefeitura Municipal de Sao Paulo</a>
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Concorrencia
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-360 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Em andamento
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2024-01-15
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2024-02-15
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#cedbe8]">
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-120 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        <a href="detalhes_licitacao.html?id=2" class="text-[#49739c]">Ministerio da Educacao</a>
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Pregao Eletronico
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-360 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Concluido
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2023-12-01
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2024-01-10
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#cedbe8]">
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-120 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        <a href="detalhes_licitacao.html?id=3" class="text-[#49739c]">Governo do Estado do Rio de Janeiro</a>
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Chamamento Publico
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-360 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">Aberto</td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2024-02-20
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2024-03-20
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#cedbe8]">
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-120 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        <a href="detalhes_licitacao.html?id=4" class="text-[#49739c]">Empresa Brasileira de Correios e Telegrafos</a>
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Tomada de Precos
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-360 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">Suspenso</td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2023-11-05
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2023-12-05
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#cedbe8]">
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-120 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        <a href="detalhes_licitacao.html?id=5" class="text-[#49739c]">Universidade Federal de Minas Gerais</a>
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">Leilao</td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-360 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Encerrado
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2024-03-01
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2024-03-31
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#cedbe8]">
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-120 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        <a href="detalhes_licitacao.html?id=6" class="text-[#49739c]">Secretaria de Saude do Estado da Bahia</a>
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">Concurso</td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-360 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Em andamento
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2024-01-22
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2024-02-22
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#cedbe8]">
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-120 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        <a href="detalhes_licitacao.html?id=7" class="text-[#49739c]">Instituto Nacional de Estudos e Pesquisas Educacionais Anisio Teixeira</a>
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Credenciamento
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-360 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Concluido
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2023-10-10
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2023-11-10
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#cedbe8]">
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-120 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        <a href="detalhes_licitacao.html?id=8" class="text-[#49739c]">Agencia Nacional de Vigilancia Sanitaria</a>
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Chamada Publica
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-360 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">Aberto</td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2024-02-28
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2024-03-28
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#cedbe8]">
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-120 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        <a href="detalhes_licitacao.html?id=9" class="text-[#49739c]">Banco Central do Brasil</a>
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">Convite</td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-360 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">Suspenso</td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2023-09-15
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2023-10-15
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#cedbe8]">
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-120 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        <a href="detalhes_licitacao.html?id=10" class="text-[#49739c]">Companhia Energetica de Minas Gerais</a>
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Dialogo Competitivo
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-360 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Encerrado
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2024-04-05
+                      </td>
+                      <td class="table-1ce5e2fe-3f49-4a9f-aa85-f5e4-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        2024-05-05
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <style>
+                          @container(max-width:120px){.table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-120{display: none;}}
+                @container(max-width:240px){.table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-240{display: none;}}
+                @container(max-width:360px){.table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-360{display: none;}}
+                @container(max-width:480px){.table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-480{display: none;}}
+                @container(max-width:600px){.table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-600{display: none;}}
+              </style>
+            </div>
+            <div class="flex items-center justify-center p-4">
+              <a href="#" class="flex size-10 items-center justify-center">
+                <div class="text-[#0d141c]" data-icon="CaretLeft" data-size="18px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path>
+                  </svg>
+                </div>
+              </a>
+              <a class="text-sm font-bold leading-normal tracking-[0.015em] flex size-10 items-center justify-center text-[#0d141c] rounded-full bg-[#e7edf4]" href="#">1</a>
+              <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#0d141c] rounded-full" href="#">2</a>
+              <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#0d141c] rounded-full" href="#">3</a>
+              <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#0d141c] rounded-full" href="#">4</a>
+              <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#0d141c] rounded-full" href="#">5</a>
+              <a href="#" class="flex size-10 items-center justify-center">
+                <div class="text-[#0d141c]" data-icon="CaretRight" data-size="18px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      async function fetchLicitacoes() {
+        const params = new URLSearchParams(window.location.search);
+        const query = params.toString();
+        const response = await fetch("http://localhost:8000/licitacoes?" + query);
+        const licitacoes = await response.json();
+
+        const tbody = document.querySelector("tbody");
+        tbody.innerHTML = "";
+
+        licitacoes.forEach(lic => {
+          const tr = document.createElement("tr");
+          tr.classList.add("border-t", "border-t-[#cedbe8]");
+
+          const orgaoTd = document.createElement("td");
+          orgaoTd.className = "table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-120 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal";
+          const orgaoLink = document.createElement("a");
+          orgaoLink.href = `detalhes_licitacao.html?id=${encodeURIComponent(lic.id)}`;
+          orgaoLink.textContent = lic.orgao_nome || "";
+          orgaoLink.className = "text-[#49739c]";
+          orgaoTd.appendChild(orgaoLink);
+          tr.appendChild(orgaoTd);
+
+          const tipoTd = document.createElement("td");
+          tipoTd.className = "table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal";
+          tipoTd.textContent = lic.modalidade_licitacao_nome || "";
+          tr.appendChild(tipoTd);
+
+          const situacaoTd = document.createElement("td");
+          situacaoTd.className = "table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-360 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal";
+          situacaoTd.textContent = lic.situacao_nome || "";
+          tr.appendChild(situacaoTd);
+
+          const dataInicioTd = document.createElement("td");
+          dataInicioTd.className = "table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal";
+          dataInicioTd.textContent = lic.data_inicio_vigencia || "";
+          tr.appendChild(dataInicioTd);
+
+          const dataFimTd = document.createElement("td");
+          dataFimTd.className = "table-1ce5e2fe-3f49-4a9f-aa85-f5e3fa2efbe4-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal";
+          dataFimTd.textContent = lic.data_fim_vigencia || "";
+          tr.appendChild(dataFimTd);
+
+          tbody.appendChild(tr);
+        });
+      }
+
+      async function fetchFilterOptions() {
+        const response = await fetch("http://localhost:8000/licitacoes");
+        const licitacoes = await response.json();
+
+        const orgaos = [...new Set(licitacoes.map(l => l.orgao_nome).filter(Boolean))].sort();
+        const tipos = [...new Set(licitacoes.map(l => l.modalidade_licitacao_nome).filter(Boolean))].sort();
+        const situacoes = [...new Set(licitacoes.map(l => l.situacao_nome).filter(Boolean))].sort();
+
+        const orgaoSelect = document.getElementById("filter-orgao");
+        orgaos.forEach(o => {
+          const option = document.createElement("option");
+          option.value = o;
+          option.textContent = o;
+          orgaoSelect.appendChild(option);
+        });
+
+        const tipoSelect = document.getElementById("filter-tipo");
+        tipos.forEach(t => {
+          const option = document.createElement("option");
+          option.value = t;
+          option.textContent = t;
+          tipoSelect.appendChild(option);
+        });
+
+        const situacaoSelect = document.getElementById("filter-situacao");
+        situacoes.forEach(s => {
+          const option = document.createElement("option");
+          option.value = s;
+          option.textContent = s;
+          situacaoSelect.appendChild(option);
+        });
+      }
+
+      document.getElementById("apply-filters-btn").addEventListener("click", () => {
+        const orgao = document.getElementById("filter-orgao").value;
+        const tipo = document.getElementById("filter-tipo").value;
+        const situacao = document.getElementById("filter-situacao").value;
+        const dataInicio = document.getElementById("filter-data-inicio").value;
+        const dataFim = document.getElementById("filter-data-fim").value;
+
+        const params = new URLSearchParams();
+        if (orgao) params.append("orgao", orgao);
+        if (tipo) params.append("tipo", tipo);
+        if (situacao) params.append("situacao", situacao);
+        if (dataInicio) params.append("data_inicio", dataInicio);
+        if (dataFim) params.append("data_fim", dataFim);
+
+        window.location.search = params.toString();
+      });
+
+      // Initialize page
+      fetchLicitacoes();
+      fetchFilterOptions();
+    </script>
+  </body>
+</html>

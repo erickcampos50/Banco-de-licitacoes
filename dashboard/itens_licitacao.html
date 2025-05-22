@@ -1,0 +1,177 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf4] px-10 py-3">
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-4 text-[#0d141c]">
+              <div class="size-4">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">Procurement Tracker</h2>
+            </div>
+            <div class="flex items-center gap-9">
+              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="index.html">Dashboard</a>
+              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="licitacoes.html">Bids</a>
+              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Contracts</a>
+              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Suppliers</a>
+            </div>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <label class="flex flex-col min-w-40 !h-10 max-w-64">
+              <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                <div
+                  class="text-[#49739c] flex border-none bg-[#e7edf4] items-center justify-center pl-4 rounded-l-lg border-r-0"
+                  data-icon="MagnifyingGlass"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  placeholder="Search"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141c] focus:outline-0 focus:ring-0 border-none bg-[#e7edf4] focus:border-none h-full placeholder:text-[#49739c] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                  value=""
+                />
+              </div>
+            </label>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBTtzfKzbnAig-rKYawqjOwrdOv-ZAGP5hCtS94lh1zNc8DYkITU_xh7hZbiodbNzIzg9meV7PvjHVWw6diJBAkQxJdGH_9Y7wRkRCZFJcDyY69lV2VT7atLz4WeZ9osRhSIOauNL9ZQfSnwbZszV97SdINwlMUdsZtlsLJPMVAMryXv_w7zqXKbkOQtRQ6nLLnFy6tx6x-KQcbDGBOMHDARJyePXqqx0wEKwLNNHvhneUGyL70A2xWfB1ceUh5AF7e-SUrhIMYnLw");'
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap gap-2 p-4">
+              <a class="text-[#49739c] text-base font-medium leading-normal" href="licitacoes.html">Bids</a>
+              <span class="text-[#49739c] text-base font-medium leading-normal">/</span>
+              <span class="text-[#0d141c] text-base font-medium leading-normal">Bid Details</span>
+            </div>
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p class="text-[#0d141c] tracking-light text-[32px] font-bold leading-tight">Bid #2023-00123</p>
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Project: Construction of Community Center</p>
+              </div>
+            </div>
+            <div class="pb-3">
+              <div class="flex border-b border-[#cedbe8] px-4 gap-8">
+                <a class="flex flex-col items-center justify-center border-b-[3px] border-b-[#0c7ff2] text-[#0d141c] pb-[13px] pt-4" href="itens_licitacao.html?id=2023-00123">
+                  <p class="text-[#0d141c] text-sm font-bold leading-normal tracking-[0.015em]">Items</p>
+                </a>
+                <a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#49739c] pb-[13px] pt-4" href="documentos_licitacao.html?id=2023-00123">
+                  <p class="text-[#49739c] text-sm font-bold leading-normal tracking-[0.015em]">Files</p>
+                </a>
+                <a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#49739c] pb-[13px] pt-4" href="resultados_licitacao.html?id=2023-00123">
+                  <p class="text-[#49739c] text-sm font-bold leading-normal tracking-[0.015em]">Results</p>
+                </a>
+              </div>
+            </div>
+            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Bid Details</h2>
+            <div class="p-4 grid grid-cols-[20%_1fr] gap-x-6">
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Description</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal">Construction of a new community center with facilities for sports, arts, and social gatherings.</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Publication Date</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal">2023-08-15</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Closing Date</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal">2023-09-30</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Estimated Value</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal">$500,000</p>
+              </div>
+            </div>
+            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Items</h2>
+            <div class="px-4 py-3 @container">
+              <div class="flex overflow-hidden rounded-lg border border-[#cedbe8] bg-slate-50">
+                <table class="flex-1">
+                  <thead>
+                    <tr class="bg-slate-50">
+                      <th class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-120 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">Item</th>
+                      <th class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-240 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
+                        Description
+                      </th>
+                      <th class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-360 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
+                        Quantity
+                      </th>
+                      <th class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-480 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
+                        Unit Price
+                      </th>
+                      <th class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-600 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
+                        Total Price
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-t border-t-[#cedbe8]">
+                      <td class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">Item 1</td>
+                      <td class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Construction materials
+                      </td>
+                      <td class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-360 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">1000</td>
+                      <td class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">$50</td>
+                      <td class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">$50,000</td>
+                    </tr>
+                    <tr class="border-t border-t-[#cedbe8]">
+                      <td class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">Item 2</td>
+                      <td class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Labor costs
+                      </td>
+                      <td class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-360 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">500</td>
+                      <td class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">$100</td>
+                      <td class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">$50,000</td>
+                    </tr>
+                    <tr class="border-t border-t-[#cedbe8]">
+                      <td class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">Item 3</td>
+                      <td class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Equipment rental
+                      </td>
+                      <td class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-360 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">200</td>
+                      <td class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">$250</td>
+                      <td class="table-3b962445-8510-421d-991b-d8bb644aeaba-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">$50,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <style>
+                          @container(max-width:120px){.table-3b962445-8510-421d-991b-d8bb644aeaba-column-120{display: none;}}
+                @container(max-width:240px){.table-3b962445-8510-421d-991b-d8bb644aeaba-column-240{display: none;}}
+                @container(max-width:360px){.table-3b962445-8510-421d-991b-d8bb644aeaba-column-360{display: none;}}
+                @container(max-width:480px){.table-3b962445-8510-421d-991b-d8bb644aeaba-column-480{display: none;}}
+                @container(max-width:600px){.table-3b962445-8510-421d-991b-d8bb644aeaba-column-600{display: none;}}
+              </style>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
