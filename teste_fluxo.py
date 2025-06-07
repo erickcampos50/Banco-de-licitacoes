@@ -27,7 +27,8 @@ c = conn.cursor()
 c.executescript("""
 -- licitacoes (colunas = chaves JSON)
 CREATE TABLE IF NOT EXISTS licitacoes (
-    id TEXT PRIMARY KEY,
+    numero_controle_pncp TEXT PRIMARY KEY,
+    id TEXT,
     "index" TEXT,
     doc_type TEXT,
     title TEXT,
@@ -73,40 +74,41 @@ CREATE TABLE IF NOT EXISTS licitacoes (
     fonte_orcamentaria TEXT,
     fonte_orcamentaria_id TEXT,
     fonte_orcamentaria_nome TEXT,
-    tipo_contrato_nome TEXT
+    tipo_contrato_nome TEXT,
+    UNIQUE(id)
 );
 CREATE INDEX IF NOT EXISTS idx_licitacoes_controle
   ON licitacoes(numero_controle_pncp);
 
 -- itens
 CREATE TABLE IF NOT EXISTS itens (
-    id_licitacao TEXT,
+    numero_controle_pncp TEXT,
     numeroItem INTEGER,
     descricao TEXT,
     valor_total REAL,
-    PRIMARY KEY (id_licitacao, numeroItem)
+    PRIMARY KEY (numero_controle_pncp, numeroItem)
 );
 
 -- arquivos
 CREATE TABLE IF NOT EXISTS arquivos (
-    id_licitacao TEXT,
+    numero_controle_pncp TEXT,
     sequencial_documento INTEGER,
     url TEXT,
     titulo TEXT,
     status_ativo BOOLEAN,
-    PRIMARY KEY (id_licitacao, sequencial_documento)
+    PRIMARY KEY (numero_controle_pncp, sequencial_documento)
 );
 
 -- markdown
 CREATE TABLE IF NOT EXISTS arquivo_markdown (
-    id_licitacao TEXT,
+    numero_controle_pncp TEXT,
     sequencial_documento INTEGER,
     nome_arquivo TEXT,
     conteudo_markdown TEXT,
     convertido_com_sucesso BOOLEAN,
     erro TEXT,
     timestamp TEXT,
-    PRIMARY KEY(id_licitacao, sequencial_documento)
+    PRIMARY KEY(numero_controle_pncp, sequencial_documento)
 );
                 
 
@@ -192,8 +194,8 @@ async def main():
     primarios = await fetch_search()
 
     # deduplicação primária
-    ids_all = {p["id"] for p in primarios}
-    c.execute("SELECT id FROM licitacoes")
+    ids_all = {p["numero_controle_pncp"] for p in primarios if p.get("numero_controle_pncp")}
+    c.execute("SELECT numero_controle_pncp FROM licitacoes")
     ids_db  = {r[0] for r in c.fetchall()}
     novos   = ids_all - ids_db
     log(f"NOVOS {len(novos)} / TOTAL {len(ids_all)}")
@@ -210,18 +212,18 @@ async def main():
     # Fase 1: processar somente os novos, buscar itens/arquivos e inserir no banco, coletar arquivos para conversão
     arquivos_para_converter = []
     for it in primarios:
-        if it["id"] not in novos:
+        if not it.get("numero_controle_pncp") or it["numero_controle_pncp"] not in novos: # ensure numero_controle_pncp exists before checking 'in novos'
             continue
-        lic_id = it["id"]
+        lic_id = it["numero_controle_pncp"]
         org, ano, seq = it["orgao_cnpj"], it["ano"], it["numero_sequencial"]
 
         # ---- ITENS ----
         itens = await fetch_itens(org, ano, seq)
         for obj in itens:
             c.execute("""
-              INSERT OR IGNORE INTO itens (id_licitacao, numeroItem, descricao, valor_total)
+              INSERT OR IGNORE INTO itens (numero_controle_pncp, numeroItem, descricao, valor_total)
               VALUES (?,?,?,?)""",
-              (lic_id, obj["numeroItem"], obj.get("descricao"), obj.get("valorTotal")))
+              (it["numero_controle_pncp"], obj["numeroItem"], obj.get("descricao"), obj.get("valorTotal")))
         conn.commit()
         if itens:
             log(f"ITENS {lic_id}: {len(itens)} gravados. Exemplo -> {json.dumps(itens[0], ensure_ascii=False)[:120]}...")
@@ -230,11 +232,11 @@ async def main():
         arquivos = await fetch_arquivos(org, ano, seq)
         for ar in arquivos:
             c.execute("""INSERT OR IGNORE INTO arquivos
-                         (id_licitacao, sequencial_documento, url, titulo, status_ativo)
+                         (numero_controle_pncp, sequencial_documento, url, titulo, status_ativo)
                          VALUES (?,?,?,?,?)""",
-                      (lic_id, ar["sequencialDocumento"], ar["url"],
+                      (it["numero_controle_pncp"], ar["sequencialDocumento"], ar["url"],
                        ar.get("titulo"), ar.get("statusAtivo")))
-            arquivos_para_converter.append((lic_id, ar["sequencialDocumento"], ar["url"]))
+            arquivos_para_converter.append((it["numero_controle_pncp"], ar["sequencialDocumento"], ar["url"]))
         conn.commit()
         if arquivos:
             log(f"ARQUIVOS {lic_id}: {len(arquivos)} gravados. Exemplo -> {json.dumps(arquivos[0], ensure_ascii=False)[:120]}...")
@@ -247,17 +249,17 @@ async def main():
 
 async def recuperar_faltantes():
     # Buscar todas as licitações
-    c.execute("SELECT id, orgao_cnpj, ano, numero_sequencial FROM licitacoes")
+    c.execute("SELECT numero_controle_pncp, orgao_cnpj, ano, numero_sequencial FROM licitacoes")
     licitacoes = c.fetchall()
     for lic_id, org, ano, seq in licitacoes:
         # Verificar itens
-        c.execute("SELECT COUNT(*) FROM itens WHERE id_licitacao=?", (lic_id,))
+        c.execute("SELECT COUNT(*) FROM itens WHERE numero_controle_pncp=?", (lic_id,))
         n_itens = c.fetchone()[0]
         if n_itens == 0:
             itens = await fetch_itens(org, ano, seq)
             for obj in itens:
                 c.execute("""
-                  INSERT OR IGNORE INTO itens (id_licitacao, numeroItem, descricao, valor_total)
+                  INSERT OR IGNORE INTO itens (numero_controle_pncp, numeroItem, descricao, valor_total)
                   VALUES (?,?,?,?)""",
                   (lic_id, obj["numeroItem"], obj.get("descricao"), obj.get("valorTotal")))
             conn.commit()
@@ -265,13 +267,13 @@ async def recuperar_faltantes():
                 log(f"RECUPERADO ITENS {lic_id}: {len(itens)} gravados.")
 
         # Verificar arquivos
-        c.execute("SELECT COUNT(*) FROM arquivos WHERE id_licitacao=?", (lic_id,))
+        c.execute("SELECT COUNT(*) FROM arquivos WHERE numero_controle_pncp=?", (lic_id,))
         n_arquivos = c.fetchone()[0]
         if n_arquivos == 0:
             arquivos = await fetch_arquivos(org, ano, seq)
             for ar in arquivos:
                 c.execute("""INSERT OR IGNORE INTO arquivos
-                             (id_licitacao, sequencial_documento, url, titulo, status_ativo)
+                             (numero_controle_pncp, sequencial_documento, url, titulo, status_ativo)
                              VALUES (?,?,?,?,?)""",
                           (lic_id, ar["sequencialDocumento"], ar["url"],
                            ar.get("titulo"), ar.get("statusAtivo")))
@@ -283,8 +285,8 @@ async def main():
     primarios = await fetch_search()
 
     # deduplicação primária
-    ids_all = {p["id"] for p in primarios}
-    c.execute("SELECT id FROM licitacoes")
+    ids_all = {p["numero_controle_pncp"] for p in primarios if p.get("numero_controle_pncp")}
+    c.execute("SELECT numero_controle_pncp FROM licitacoes")
     ids_db  = {r[0] for r in c.fetchall()}
     novos   = ids_all - ids_db
     log(f"NOVOS {len(novos)} / TOTAL {len(ids_all)}")
@@ -301,18 +303,18 @@ async def main():
     # Fase 1: processar somente os novos, buscar itens/arquivos e inserir no banco, coletar arquivos para conversão
     arquivos_para_converter = []
     for it in primarios:
-        if it["id"] not in novos:
+        if not it.get("numero_controle_pncp") or it["numero_controle_pncp"] not in novos: # ensure numero_controle_pncp exists before checking 'in novos'
             continue
-        lic_id = it["id"]
+        lic_id = it["numero_controle_pncp"]
         org, ano, seq = it["orgao_cnpj"], it["ano"], it["numero_sequencial"]
 
         # ---- ITENS ----
         itens = await fetch_itens(org, ano, seq)
         for obj in itens:
             c.execute("""
-              INSERT OR IGNORE INTO itens (id_licitacao, numeroItem, descricao, valor_total)
+              INSERT OR IGNORE INTO itens (numero_controle_pncp, numeroItem, descricao, valor_total)
               VALUES (?,?,?,?)""",
-              (lic_id, obj["numeroItem"], obj.get("descricao"), obj.get("valorTotal")))
+              (it["numero_controle_pncp"], obj["numeroItem"], obj.get("descricao"), obj.get("valorTotal")))
         conn.commit()
         if itens:
             log(f"ITENS {lic_id}: {len(itens)} gravados. Exemplo -> {json.dumps(itens[0], ensure_ascii=False)[:120]}...")
@@ -321,11 +323,11 @@ async def main():
         arquivos = await fetch_arquivos(org, ano, seq)
         for ar in arquivos:
             c.execute("""INSERT OR IGNORE INTO arquivos
-                         (id_licitacao, sequencial_documento, url, titulo, status_ativo)
+                         (numero_controle_pncp, sequencial_documento, url, titulo, status_ativo)
                          VALUES (?,?,?,?,?)""",
-                      (lic_id, ar["sequencialDocumento"], ar["url"],
+                      (it["numero_controle_pncp"], ar["sequencialDocumento"], ar["url"],
                        ar.get("titulo"), ar.get("statusAtivo")))
-            arquivos_para_converter.append((lic_id, ar["sequencialDocumento"], ar["url"]))
+            arquivos_para_converter.append((it["numero_controle_pncp"], ar["sequencialDocumento"], ar["url"]))
         conn.commit()
         if arquivos:
             log(f"ARQUIVOS {lic_id}: {len(arquivos)} gravados. Exemplo -> {json.dumps(arquivos[0], ensure_ascii=False)[:120]}...")
