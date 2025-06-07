@@ -1,7 +1,7 @@
 import sqlite3
 import os
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Optional
 
 # ==================== utilidades ====================
@@ -48,7 +48,7 @@ def create_markdown(
     fm_lines: list[str] = []
     # campos front matter
     title = safe_get(licitacao, 'title')
-    date = safe_get(licitacao, 'data_publicacao_pncp')
+    # date = safe_get(licitacao, 'data_publicacao_pncp') # Replaced by jekyll_date_str logic below
     slug = sanitize_filename(safe_get(licitacao, 'numero_controle_pncp') or safe_get(licitacao, 'id'))
     valor_global = licitacao['valor_global'] if licitacao['valor_global'] is not None else 0
     # coletar tags e categorias
@@ -56,7 +56,35 @@ def create_markdown(
 
     fm_lines.append("---")
     fm_lines.append(f"title: \"{title}\"")
-    fm_lines.append(f"date: \"{date}\"")
+    fm_lines.append("layout: post") # Added layout field
+
+    jekyll_date_str = ""
+    original_date_str = safe_get(licitacao, 'data_publicacao_pncp') # Keep original for parsing
+    if original_date_str and original_date_str != '-':
+        try:
+            # Handle potential 'Z' at the end for UTC
+            if original_date_str.endswith('Z'):
+                dt_obj = datetime.fromisoformat(original_date_str[:-1] + '+00:00')
+            else:
+                dt_obj = datetime.fromisoformat(original_date_str)
+
+            # If datetime object is naive, assume UTC
+            if dt_obj.tzinfo is None or dt_obj.tzinfo.utcoffset(dt_obj) is None:
+                dt_obj = dt_obj.replace(tzinfo=timezone.utc)
+
+            jekyll_date_str = dt_obj.strftime("%Y-%m-%d %H:%M:%S %z")
+            # Ensure %z didn't produce empty string if dt_obj was still naive (should not happen with above)
+            if len(jekyll_date_str.split(' ')) == 2 : # No timezone part
+                 jekyll_date_str = dt_obj.strftime("%Y-%m-%d %H:%M:%S") + " +0000"
+
+        except ValueError as e_parse:
+            print(f"Warning: Could not parse date '{original_date_str}' for licitacao '{safe_get(licitacao, 'id')}' (Error: {e_parse}). Using current time.")
+            jekyll_date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S %z")
+    else:
+        print(f"Warning: Date missing for licitacao '{safe_get(licitacao, 'id')}'. Using current time.")
+        jekyll_date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S %z")
+
+    fm_lines.append(f"date: \"{jekyll_date_str}\"") # Use new jekyll_date_str
     fm_lines.append("draft: false")
     fm_lines.append(f"slug: \"{slug}\"")
     fm_lines.append(f"lic_id: \"{safe_get(licitacao, 'id')}\"")
@@ -135,34 +163,63 @@ def create_markdown(
 # ==================== exportação em lote ====================
 
 def convert_all_to_markdown(db_path: str, output_folder: str) -> None:
+    # output_folder is now the Jekyll site root
     if not os.path.exists(output_folder):
         os.makedirs(output_folder, exist_ok=True)
+
+    posts_dir = os.path.join(output_folder, "_posts")
+    if not os.path.exists(posts_dir):
+        os.makedirs(posts_dir, exist_ok=True)
 
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
 
-    cur.execute("SELECT * FROM licitacoes")
+    # Assuming numero_controle_pncp is the primary key or at least a unique identifier we want to use.
+    cur.execute("SELECT * FROM licitacoes") # numero_controle_pncp is expected to be a column name
     licitacoes = cur.fetchall()
 
     for lic in licitacoes:
-        cur.execute("SELECT * FROM itens WHERE id_licitacao=? ORDER BY numeroItem", (lic['id'],))
+        key_for_joins = lic['numero_controle_pncp'] # Use numero_controle_pncp for joins
+
+        cur.execute("SELECT * FROM itens WHERE numero_controle_pncp=? ORDER BY numeroItem", (key_for_joins,))
         itens = cur.fetchall()
 
-        cur.execute("SELECT * FROM arquivos WHERE id_licitacao=? ORDER BY sequencial_documento", (lic['id'],))
+        cur.execute("SELECT * FROM arquivos WHERE numero_controle_pncp=? ORDER BY sequencial_documento", (key_for_joins,))
         arquivos = cur.fetchall()
 
         cur.execute(
-            "SELECT * FROM arquivo_markdown WHERE id_licitacao=? AND sequencial_documento<>0 AND convertido_com_sucesso=1 ORDER BY sequencial_documento",
-            (lic['id'],),
+            "SELECT * FROM arquivo_markdown WHERE numero_controle_pncp=? AND sequencial_documento<>0 AND convertido_com_sucesso=1 ORDER BY sequencial_documento",
+            (key_for_joins,),
         )
         docs_md = cur.fetchall()
 
         md_content = create_markdown(lic, itens, arquivos, docs_md)
 
-        raw_name = safe_get(lic, 'numero_controle_pncp') or safe_get(lic, 'id')
-        file_name = f"{sanitize_filename(raw_name)}.md"
-        file_path = os.path.join(output_folder, file_name)
+        # File Naming Logic
+        filename_date_part = ""
+        date_str_for_filename = safe_get(lic, 'data_publicacao_pncp')
+        if date_str_for_filename and date_str_for_filename != '-':
+            try:
+                if date_str_for_filename.endswith('Z'):
+                    dt_obj_fn = datetime.fromisoformat(date_str_for_filename[:-1] + '+00:00')
+                else:
+                    dt_obj_fn = datetime.fromisoformat(date_str_for_filename)
+                filename_date_part = dt_obj_fn.strftime("%Y-%m-%d")
+            except ValueError:
+                print(f"Warning: Could not parse date '{date_str_for_filename}' for filename for licitacao '{key_for_joins}'. Using current date for filename.")
+                filename_date_part = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        else:
+            print(f"Warning: Date missing for filename for licitacao '{key_for_joins}'. Using current date for filename.")
+            filename_date_part = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+        base_slug_text = safe_get(lic, 'title')
+        if not base_slug_text or base_slug_text == '-':
+            base_slug_text = 'licitacao-' + (safe_get(lic, 'numero_controle_pncp') or safe_get(lic, 'id', 'no-id'))
+        filename_slug_part = sanitize_filename(base_slug_text)
+
+        file_name = f"{filename_date_part}-{filename_slug_part}.md"
+        file_path = os.path.join(posts_dir, file_name) # Use posts_dir
 
         try:
             with open(file_path, "w", encoding="utf-8") as mdfile:
@@ -171,14 +228,14 @@ def convert_all_to_markdown(db_path: str, output_folder: str) -> None:
         except Exception as exc:
             ok, err_msg = False, str(exc)
 
-        timestamp = datetime.now().isoformat()
+        timestamp = datetime.now(timezone.utc).isoformat() # Ensure timestamp is timezone-aware
         cur.execute(
             """
             INSERT OR REPLACE INTO arquivo_markdown 
-            (id_licitacao, sequencial_documento, nome_arquivo, conteudo_markdown, convertido_com_sucesso, erro, timestamp)
-            VALUES (?, 0, ?, ?, ?, ?, ?)""",
+            (numero_controle_pncp, sequencial_documento, nome_arquivo, conteudo_markdown, convertido_com_sucesso, erro, timestamp)
+            VALUES (?, 0, ?, ?, ?, ?, ?)""", # Changed id_licitacao to numero_controle_pncp
             (
-                lic['id'],
+                key_for_joins, # Use key_for_joins
                 file_name,
                 md_content if ok else "",
                 ok,
@@ -194,7 +251,7 @@ def convert_all_to_markdown(db_path: str, output_folder: str) -> None:
 
 
 if __name__ == '__main__':
-    db_path = "database.db"
-    output_folder = "licitacoes-site/content/licitacoes"
+    db_path = "database.db" # Keep or change as needed
+    output_folder = "jekyll_site" # Updated default output folder (Jekyll root)
 
     convert_all_to_markdown(db_path, output_folder)
